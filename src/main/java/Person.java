@@ -1,10 +1,10 @@
 import java.util.Objects;
 
 public class Person {
-    protected final String name;
-    protected final String surname;
-    protected Integer age;
-    protected String address;
+    final String name;
+    final String surname;
+    Integer age;
+    String address;
 
     public Person(String name, String surname) {
             this.name = name;
@@ -43,7 +43,7 @@ public class Person {
                 .setAddress(this.address);
     }
 
-    protected Person(PersonBuilder builder) {
+    public Person(PersonBuilder builder) {
         this.name = builder.name;
         this.surname = builder.surname;
         this.age = builder.age;
@@ -68,10 +68,12 @@ public class Person {
 
     @Override
     public String toString() {
-        if (this.hasAge()) {
-            return getSurname() + " " + getName() + " " + getAge() + " лет";
-        }
-            return getSurname() + " " + getName();
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                '}';
     }
 
     @Override
